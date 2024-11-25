@@ -7,7 +7,6 @@ let browser;
 let page;
 let loginPage;
 
-// Step definition to navigate to login page with increased timeout
 Given('I navigate to the login page', { timeout: 60000 }, async () => {
     const browserData = await launchBrowser(false);  // Launch browser via helper function
     browser = browserData.browser;
@@ -17,21 +16,16 @@ Given('I navigate to the login page', { timeout: 60000 }, async () => {
 
 });
 
-// Step definition for entering credentials
 When('I enter the username {string} and password {string}', async (username, password) => {
     // await leaproadLogin(page, username, password);
     await loginPage.enterCredentials(username, password);
     await loginPage.clickLoginButton();
 });
 
-// Step definition for success message or homepage validation
 Then('I should see a success message or the homepage',{ timeout: 30000 }, async () => {
-    //const homepageElement = await loginPage.getHomepageElement();  // Assuming this function is implemented
-    //expect(homepageElement).toBeVisible();
     await loginPage.verifyLoginSuccess(); 
 });
 
-// Step definition for login failure
 Then('I should see a login error message {string}', async (expectedErrorMessage) => {
     await expect(loginPage.page.locator(loginPage.ERROR_MESSAGE)).toBeVisible();
 

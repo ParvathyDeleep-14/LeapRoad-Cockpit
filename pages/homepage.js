@@ -119,22 +119,7 @@ class HomePage extends BasePage {
     }
     await this.page.$$(this.ADD_IMAGE1).then((elements) => elements[1].click());
   }
-  //   async addImageVerify(page) {
-  //     await expect(this.page.locator(this.FILE_UPLOAD_VERIFY)).toBeVisible();
-  //     await this.page.fill(this.TITLE, "Profile image");
-  //     await this.page.$$(this.UPLOAD).then((elements) => elements[1].click());
-  //     await this.page.waitForTimeout(3000);
-  //     const fileName = "IP.jpg";
-  //     const fileSelector = `text="${fileName}"`; // A text selector for the file name
-  //     await this.page.waitForTimeout(6000);
 
-  //     await this.page.waitForSelector(fileSelector); // Wait for the file name to be visible on the page
-  //     // Verify the file is present in the UI
-  //     const isFileListed = await this.page.isVisible(fileSelector, {
-  //       timeout: 6000,
-  //     });
-  //     console.log("File is visible");
-  //   }
 
   async addContent(page) {
     await this.page.fill(this.CHAT, "Hi");
@@ -166,14 +151,7 @@ class HomePage extends BasePage {
     await this.page.click(this.ADD_VIDEO);
   }
 
-  // await uploadFile(page,'C:\\Users\\parva\\Downloads\\Jumping Jacks.mp4',this.BROWSE_FILE);
-  // await this.page.setInputFiles(
-  //   'input[type="file"]',
-  //   "C:\\Users\\parva\\Downloads\\Jumping Jacks.mp4"
-  // );
-  // const profilePictureElements = await this.page.$(this.BROWSE_FILE);
-  // expect(profilePictureElements).not.toBeNull();
-  // expect(await profilePictureElements.isVisible()).toBeTruthy();
+
   async verifyContent(page) {
     await expect(
       this.page.locator(this.FILE_UPLOAD_VERIFY).getByText("Jumping Jacks.mp4")
@@ -214,18 +192,6 @@ class HomePage extends BasePage {
     console.log("File is visible");
   }
 
-  // await this.page.click(this.BROWSE_FILE)
-
-  // await fileInput.setInputFiles('"C:\Users\parva\Downloads\Jumping Jacks.mp4"'); // Replace with the actual file path
-  // await this.page.waitForTimeout(3000)
-
-  // Submit the form or click the upload button if necessary
-  // await page.click('button[type="submit"]'); // Replace with the actual upload button selector
-
-  // Wait for the file upload confirmation or any success message
-  // await expect(page.locator('text="Upload successful"')).toBeVisible();
-  // await this.page.fill(this.P1,"sample prompt")
-  // await this.page.waitForTimeout(3000);
   async addVideo(page) {
     await this.page.click(this.ADD_VIDEO);
     await this.page
